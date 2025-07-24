@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contaduría Pública</title>
+  <link rel="stylesheet" href="estilo.css" />
+</head>
+<body>
+  <h1>Contaduría Pública</h1>
+
+  <!-- Contenedor de la barra de progreso -->
+  <div id="progreso-container">
+    
+    <div id="barra-progreso">
+    <span id="porcentaje-progreso">0%</span>
+    </div>
+  </div>
+
+  <div id="mensaje-aleatorio"></div>
+
+  <div class="contenedor-malla">
+
+    <div class="grupo-anio">
+      
+      <div class="anio">Año 1</div>
+      
+      <div class="fila-semestres">
+        <div class="semestre">
+          <h2>Semestre 1</h2>
+          <ul>
+            <li><button class="ramo" data-id="MICRO">Microeconomía</button></li>
+            <li><button class="ramo" data-id="DP">Derecho Privado</button></li>
+            <li><button class="ramo" data-id="I">Inglés</button></li>
+            <li><button class="ramo" data-id="CF1">Contabilidad Financiera I</button></li>
+            <li><button class="ramo" data-id="M1">Matemática I</button></li>
+          </ul>
+        </div>
+
+        <div class="semestre">
+          <h2>Semestre 2</h2>
+          <ul>
+            <li><button class="ramo" data-id="Macro" data-requisitos="MICRO">Macroeconomía</button></li>
+            <li><button class="ramo" data-id="TADMIN">Teoría de la administración</button></li>
+            <li><button class="ramo" data-id="COE">Comunicación Oral y Escrita</button></li>
+            <li><button class="ramo" data-id="E">Ética</button></li>
+            <li><button class="ramo" data-id="G1" data-requisitos="CF1">Gabinete I</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="grupo-anio">
+      
+      <div class="anio">Año 2</div>
+      
+      <div class="fila-semestres">
+        
+        <div class="semestre">
+          <h2>Semestre 3</h2>
+          <ul>
+            <li><button class="ramo" data-id="G">Guaraní</button></li>
+            <li><button class="ramo" data-id="CF2" data-requisitos="CF1">Contabilidad Financiera II</button></li>
+            <li><button class="ramo" data-id="T1">Tributación I</button></li>
+            <li><button class="ramo" data-id="OAE" data-requisitos="TADMIN">Organización y Administración de Empresas</button></li>
+            <li><button class="ramo" data-id="M2" data-requisitos="M1">Matemática II</button></li>
+          </ul>
+        </div>
+
+        <div class="semestre">
+          <h2>Semestre 4</h2>
+          <ul>
+            <li><button class="ramo" data-id="OP1">Optativa I</button></li>
+            <li><button class="ramo" data-id="M3" data-requisitos="M2">Matemática III</button></li>
+            <li><button class="ramo" data-id="G2" data-requisitos="G1">Gabinete II</button></li>
+            <li><button class="ramo" data-id="RLE">Régimen Legal de las Empresas</button></li>
+            <li><button class="ramo" data-id="TIC" >Tecnología de la Información y la Comunicación (TIC)</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="grupo-anio">
+      
+      <div class="anio">Año 3</div>
+      
+      <div class="fila-semestres">
+      
+        <div class="semestre">
+          <h2>Semestre 5</h2>
+          <ul>
+            <li><button class="ramo" data-id="OP2">Optativa II</button></li>
+            <li><button class="ramo" data-id="MTI">Metodología y Técnica de la Investigación</button></li>
+            <li><button class="ramo" data-id="CF3" data-requisitos="CF2">Contabilidad Financiera III</button></li>
+            <li><button class="ramo" data-id="DT" data-requisitos="REL">Derecho del Trabajo</button></li>
+            <li><button class="ramo" data-id="EST">Estadística</button></li>
+          </ul>
+        </div>
+
+        <div class="semestre">
+          <h2>Semestre 6</h2>
+          <ul>
+            <li><button class="ramo" data-id="OSM1" data-requisitos="OAE">Organización, Sistemas y Métodos I</button></li>
+            <li><button class="ramo" data-id="FE" data-requisitos="CF2">Finanzas de Empresas</button></li>
+            <li><button class="ramo" data-id="T2" data-requisitos="T1">Tributación II</button></li>
+            <li><button class="ramo" data-id="AP">Administración Presupuestaria</button></li>
+            <li><button class="ramo" data-id="IA" data-requisitos="TIC">Informática Aplicada</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="grupo-anio">
+      
+      <div class="anio">Año 4</div>
+      
+      <div class="fila-semestres">
+        
+        <div class="semestre">
+          <h2>Semestre 7</h2>
+          <ul>
+            <li><button class="ramo" data-id="OP3">Optativa III</button></li>
+            <li><button class="ramo" data-id="CG1">Contabilidad de Gestión I</button></li>
+            <li><button class="ramo" data-id="CF4" data-requisitos="CF3">Contabilidad Financiera IV</button></li>
+            <li><button class="ramo" data-id="CGU" data-requisitos="AP">Contabilidad Gubernamental</button></li>
+            <li><button class="ramo" data-id="A1">Auditoría I</button></li>
+          </ul>
+        </div>
+
+        <div class="semestre">
+          <h2>Semestre 8</h2>
+          <ul>
+            <li><button class="ramo" data-id="OSM2" data-requisitos="OSM1">Organización, Sistemas y Métodos II</button></li>
+            <li><button class="ramo" data-id="CG2" data-requisitos="CG1">Contabilidad de Gestión II</button></li>
+            <li><button class="ramo" data-id="CF5" data-requisitos="CF4">Contabilidad Financiera V</button></li>
+            <li><button class="ramo" data-id="DSI">Diseño de Sistemas de Información</button></li>
+            <li><button class="ramo" data-id="AI" data-requisitos="IA">Auditoría en informática</button></li>            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grupo-anio">
+      
+      <div class="anio">Año 5</div>
+      
+      <div class="fila-semestres">
+        
+        <div class="semestre">
+          <h2>Semestre 9</h2>
+          <ul>
+            <li><button class="ramo" data-id="EMP">Emprendedorismo</button></li>
+            <li><button class="ramo" data-id="SIA1" data-requisitos="MTI">Seminario de Investigación Aplicada I</button></li>
+            <li><button class="ramo" data-id="A2" data-requisitos="A1">Auditoría II</button></li>
+            <li><button class="ramo" data-id="AG" data-requisitos="CGU">Auditoría Gubernamental</button></li>
+            <li><button class="ramo" data-id="CG3" data-requisitos="CG2">Contabilidad de Gestión III</button></li>
+
+          </ul>
+        </div>
+
+        <div class="semestre">
+          <h2>Semestre 10</h2>
+          <ul>
+            <li><button class="ramo" data-id="CF6" data-requisitos="CF5">Contabilidad Financiera VI – Bancos</button></li>
+            <li><button class="ramo" data-id="EP">Ejercicio Profesional</button></li>
+            <li><button class="ramo" data-id="A3" data-requisitos="A2">Auditoría III</button></li>
+            <li><button class="ramo" data-id="SIA2" data-requisitos="SIA1">Seminario de Investigación Aplicada II</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+  <script src="script.js"></script>
+
+</body>
+</html>
