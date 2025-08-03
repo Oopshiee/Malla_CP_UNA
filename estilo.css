@@ -1,0 +1,230 @@
+/* Reset básico para que el box-sizing incluya padding y border */
+* {
+  box-sizing: border-box;
+}
+
+/* Estilos generales del body */
+body {
+  max-width: 1200px;
+  font-family: Arial, sans-serif;
+  margin: 20px auto;
+  padding: 0 20px;
+  background: ##f0f4f8;
+}
+
+/* Título principal centrado */
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* CONTENEDOR DE BARRA DE PROGRESO */
+#progreso-container {
+  width: 80%;
+  max-width: 1300px;
+  height: 20px;
+  background-color: ##b2ebf2; /* celeste claro */
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 0 auto 25px auto;
+  
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+/* Barra interna que crecerá según avance */
+#barra-progreso {
+  height: 100%;
+  background-color: #00acc1; /* turquesa fuerte */
+  width: 0%; /* inicia en 0% */
+  transition: width 0.3s;
+
+  /* Centrar texto */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #e0f7fa; /*celeste casi blanco*/
+  font-weight: bold;
+  user-select: none;
+}
+
+/* Texto con porcentaje en de barra */
+#porcentaje-progreso {
+
+  z-index: 1;
+  pointer-events: none;
+  font-weight: bold;
+  color: #f3e5f5; /*lavanda casi blanco*/
+}
+
+/* Contenedor principal de la malla: por defecto en columna (móvil) */
+.contenedor-malla {
+  display: flex;
+  flex-direction: column; /* apilar años verticalmente en móvil */
+  gap: 40px; /* espacio entre años */
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* En pantallas medianas y grandes (PC): usar grid de 4 columnas para años */
+@media (min-width: 768px) {
+  .contenedor-malla {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(250px, 1fr)); /* 4 columnas iguales */
+    gap: 30px; /* espacio entre columnas */
+    align-items: stretch;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px 0;
+
+  }
+  
+
+
+  .grupo-anio{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 30px;
+  }
+}
+
+/* Cada grupo de año se muestra como un grid con 2 filas para semestres */
+.grupo-anio {
+  background-color: #dcedf8;  /* color suave de fondo */
+  border-radius: 10px; /* bordes redondeados */
+  justify-items: center;
+  padding: 15px; /* espacio interno */
+  box-shadow: 0 0 8px rgba(0,0,0,0.1); /* sombra suave */
+  min-width: 280px; 
+  max-width: 320px; 
+
+
+}
+
+/* Estilo para el título del año */
+.anio {
+  font-weight: bold;
+  color: #33105D;
+  font-size: 24px;
+  margin-bottom: 0;
+  text-align: center;
+  user-select: none; /* evita seleccionar texto accidentalmente */
+  margin-bottom: 20px;
+}
+
+/* Estilos para cada semestre dentro del año */
+.semestre {
+  background-color: #e0f7fa; /* turquesa claro */
+  border-left: 8px solid #80deea; /* barra izquierda decorativa */
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  margin-top: 20px; 
+  max-width: 90%;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1); /* sombra ligera */
+
+  /*display botones*/
+  display: flex; /*usamos flexbox*/
+  flex-direction: column; /*organiza verticalmente*/
+  align-items: center; /*organiza horizontalmente*/
+  text-align: center; /*centra el texto*/
+}
+
+/* Encabezado h2 del semestre sin margen arriba */
+.semestre h2 {
+  margin: 0 0 10px 0;
+}
+
+/* Lista sin viñetas ni padding */
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+/* Botones de cada ramo - diseño básico */
+button.ramo {
+  background-color: #e3f2fd;
+  border: 2px solid #b3e5fc;
+  color: #0277bd;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: background-color 0.3s;
+  transition: all 0.3s ease; 
+}
+
+/* Hover para botones que no están aprobados ni deshabilitados */
+button.ramo:not(:disabled):not(.aprobado) {
+  background-color: #e1f5fe;
+  border-color: #81d4fa;
+  color: #0277bd;
+}
+
+/* Estado aprobado: fondo verde y texto tachado */
+button.ramo.aprobado {
+  background-color: #d0f0ef;
+  border-color: #26c6da;
+  color: #00796b;
+  text-decoration: line-through;
+}
+
+/* Botón deshabilitado (cuando faltan prerrequisitos) */
+button.ramo:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #f0edf8;
+  border-color: #d1c4e9;
+  color: #b0a8c7;
+}
+
+/* Ajustes para móvil: mostrar años y semestres en columna sencilla */
+@media (max-width: 767px) {
+  .grupo-anio {
+    display: block; /* cada año en bloque vertical */
+    background-color: transparent; /* quitar fondo azul */
+    box-shadow: none; /* quitar sombra */
+    padding: 0; /* quitar padding */
+  }
+  .anio {
+    margin-bottom: 12px; /* separar del semestre */
+    text-align: center;
+  }
+  .semestre {
+    border-left: none; /* quitar barra izquierda */
+    background-color: #ede7f6; /* fondo azul claro */
+    margin: 0 auto 20px auto;
+    margin-bottom: 20px; /* espacio abajo entre semestres */
+    box-shadow: none; /* quitar sombra */
+    padding: 10px;
+    border-radius: 10px;
+
+    width: 90vw;
+    max-width: 320px;
+    min-width: 320px;
+    box-sizing: border-box;
+  }
+}
+#mensaje-aleatorio {
+  margin: 15px auto;
+  padding: 12px 16px;
+  max-width: 600px;
+  background-color: #ede7f6; 
+  border-left: 6px solid #4dd0e1; /* barra decorativa similar a la malla */
+  border-radius: 10px;
+  font-style: italic;
+  font-size: 1.1em;
+  text-align: center;
+  color: #006064;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  min-height: 1.5em; /* mantiene la altura aunque no haya mensaje */
+}
