@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   
   const mensajesAleatorios = [
-
     "¡Un ramo menos amorcitoo!",
     "Pasar es pasar ea",
     "¡Ánimo ánimo bebé!",
@@ -22,8 +21,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const idsSemestre10 = ["CF6", "EP", "A3", "SIA2"];
 
   function mostrarMensajeAleatorio(){
-    const mensaje = mensajesAleatorios[Math.floor(Math.random()*mensajesAleatorios.length)];
-    document.getElementById("mensaje-aleatorio");
+    const mensaje = mensajesAleatorios[Math.floor(Math.random() * mensajesAleatorios.length)];
+    const mensajeDiv = document.getElementById("mensaje-aleatorio");
+    mensajeDiv.textContent = mensaje;
+    mensajeDiv.style.opacity = 1;
+    setTimeout(() => {
+      mensajeDiv.style.opacity = 0;
+    }, 3000);
   }
 
   function mostrarModalEspecial(mensaje) {
@@ -83,16 +87,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function verificarEspeciales(){
-    const aprobados= idList =>
+    const aprobados = idList =>
       idList.every(id => document.querySelector(`[data-id="${id}"]`)?.classList.contains("aprobado"));
-    if (aprobados((idsSemestre9)){
+    
+    if (aprobados(idsSemestre9)) {
       mostrarModalEspecial(mensajesEspeciales.semestre9);
-    }
-    else if(aprobados(idsSemestre10)) {
+    } else if (aprobados(idsSemestre10)) {
       mostrarModalEspecial(mensajesEspeciales.semestre10);
     }
   }
 
+  // Eventos para los botones de ramos
   obtenerBotones().forEach(boton => {
     boton.addEventListener("click", () => {
       if (boton.classList.contains("aprobado")) {
@@ -107,6 +112,17 @@ document.addEventListener("DOMContentLoaded", () => {
       actualizarEstadoRequisitos();
       actualizarBarraProgreso();
     });
+  });
+
+  // Evento para cerrar modal
+  document.getElementById("cerrar-modal").addEventListener("click", () => {
+    document.getElementById("modal-especial").style.display = "none";
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target.id === "modal-especial") {
+      document.getElementById("modal-especial").style.display = "none";
+    }
   });
   
   // Inicializar
