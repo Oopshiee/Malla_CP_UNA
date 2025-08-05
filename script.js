@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function mostrarMensajeAleatorio(){
     const mensaje = mensajesAleatorios[Math.floor(Math.random()*mensajesAleatorios.length)];
-    document.getElementById("mensaje-aleatorio";
+    document.getElementById("mensaje-aleatorio");
   }
 
   function mostrarModalEspecial(mensaje) {
@@ -100,6 +100,8 @@ document.addEventListener("DOMContentLoaded", () => {
         desmarcarDependientes(boton.dataset.id);
       } else {
         boton.classList.add("aprobado");
+        mostrarMensajeAleatorio();
+        verificarEspeciales();
       }
       guardarEstado();
       actualizarEstadoRequisitos();
