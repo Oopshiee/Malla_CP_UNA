@@ -266,3 +266,12 @@ button.ramo:disabled {
 .cerrar:hover {
   color: #00bcd4; /* turquesa */
 }
+
+#mensaje-aleatorio.mostrar {
+  opacity: 1;
+}
+
+#mensaje-aleatorio.ocultar {
+  opacity: 0;
+}
+
