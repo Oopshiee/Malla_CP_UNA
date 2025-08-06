@@ -24,28 +24,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const idsSemestre9 = ["EMP", "SIA1", "A2", "AG", "CG3"];
   const idsSemestre10 = ["CF6", "EP", "A3", "SIA2"];
 
-  let timeoutMensaje; // para controlar la duración de los mensajes
+  let timeoutMensaje = null;
 
   function mostrarMensajeAleatorio(){
     const mensaje = mensajesAleatorios[Math.floor(Math.random() * mensajesAleatorios.length)];
     const contenedorMensaje = document.getElementById("mensaje-aleatorio");
 
-    // Cancelar timeout anterior si existe
-    clearTimeout(timeoutMensaje);
-
-    // Resetear visibilidad
-    contenedorMensaje.style.opacity = 0;
-    contenedorMensaje.textContent = mensaje;
-
-    // Forzar reflow para reiniciar transición
-    void contenedorMensaje.offsetWidth;
-
     // Mostrar mensaje
-    contenedorMensaje.style.opacity = 1;
+    contenedorMensaje.textContent = mensaje;
+    contenedorMensaje.classList.add("visible");
 
-    // Ocultar después de 5 segundos
+    // Si había un timeout previo, lo limpiamos para reiniciar el tiempo
+    if (timeoutMensaje) clearTimeout(timeoutMensaje);
+
+    // Ocultar después de 5 segundos exactos
     timeoutMensaje = setTimeout(() => {
-      contenedorMensaje.style.opacity = 0;
+      contenedorMensaje.classList.remove("visible");
     }, 5000);
   }
 
@@ -113,7 +107,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return lista.every(id => document.querySelector(`[data-id="${id}"]`)?.classList.contains("aprobado"));
   }
 
-  // Eventos para los botones de ramos
   obtenerBotones().forEach(boton => {
     boton.addEventListener("click", () => {
       const id = boton.dataset.id;
@@ -125,7 +118,6 @@ document.addEventListener("DOMContentLoaded", () => {
         boton.classList.add("aprobado");
         mostrarMensajeAleatorio();
 
-        // Mostrar modal solo si este ramo es del semestre y completa todos
         if (perteneceASemestre(id, idsSemestre9) && estanTodosAprobados(idsSemestre9)) {
           mostrarModalEspecial(mensajesEspeciales.semestre9);
         }
@@ -140,7 +132,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Evento para cerrar modal
   document.getElementById("cerrar-modal").addEventListener("click", () => {
     document.getElementById("modal-especial").style.display = "none";
   });
@@ -151,9 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
   
-  // Inicializar
   cargarEstado();
   actualizarEstadoRequisitos();
   actualizarBarraProgreso();
 });
-
