@@ -11,20 +11,19 @@
 
   <!-- Contenedor de la barra de progreso -->
   <div id="progreso-container">
-    
     <div id="barra-progreso">
-    <span id="porcentaje-progreso">0%</span>
+      <span id="porcentaje-progreso">0%</span>
     </div>
   </div>
 
   <div id="mensaje-aleatorio"></div>
 
+  <!-- Contenedor malla con todos los años -->
   <div class="contenedor-malla">
 
+    <!-- Año 1 -->
     <div class="grupo-anio">
-      
       <div class="anio">Año 1</div>
-      
       <div class="fila-semestres">
         <div class="semestre">
           <h2>Semestre 1</h2>
@@ -36,7 +35,6 @@
             <li><button class="ramo" data-id="M1">Matemática I</button></li>
           </ul>
         </div>
-
         <div class="semestre">
           <h2>Semestre 2</h2>
           <ul>
@@ -50,12 +48,10 @@
       </div>
     </div>
 
+    <!-- Año 2 -->
     <div class="grupo-anio">
-      
       <div class="anio">Año 2</div>
-      
       <div class="fila-semestres">
-        
         <div class="semestre">
           <h2>Semestre 3</h2>
           <ul>
@@ -66,7 +62,6 @@
             <li><button class="ramo" data-id="M2" data-requisitos="M1">Matemática II</button></li>
           </ul>
         </div>
-
         <div class="semestre">
           <h2>Semestre 4</h2>
           <ul>
@@ -74,18 +69,16 @@
             <li><button class="ramo" data-id="M3" data-requisitos="M2">Matemática III</button></li>
             <li><button class="ramo" data-id="G2" data-requisitos="G1">Gabinete II</button></li>
             <li><button class="ramo" data-id="RLE">Régimen Legal de las Empresas</button></li>
-            <li><button class="ramo" data-id="TIC" >Tecnología de la Información y la Comunicación (TIC)</button></li>
+            <li><button class="ramo" data-id="TIC">Tecnología de la Información y la Comunicación (TIC)</button></li>
           </ul>
         </div>
       </div>
     </div>
 
+    <!-- Año 3 -->
     <div class="grupo-anio">
-      
       <div class="anio">Año 3</div>
-      
       <div class="fila-semestres">
-      
         <div class="semestre">
           <h2>Semestre 5</h2>
           <ul>
@@ -96,7 +89,6 @@
             <li><button class="ramo" data-id="EST">Estadística</button></li>
           </ul>
         </div>
-
         <div class="semestre">
           <h2>Semestre 6</h2>
           <ul>
@@ -110,12 +102,10 @@
       </div>
     </div>
 
+    <!-- Año 4 -->
     <div class="grupo-anio">
-      
       <div class="anio">Año 4</div>
-      
       <div class="fila-semestres">
-        
         <div class="semestre">
           <h2>Semestre 7</h2>
           <ul>
@@ -126,7 +116,6 @@
             <li><button class="ramo" data-id="A1">Auditoría I</button></li>
           </ul>
         </div>
-
         <div class="semestre">
           <h2>Semestre 8</h2>
           <ul>
@@ -134,19 +123,16 @@
             <li><button class="ramo" data-id="CG2" data-requisitos="CG1">Contabilidad de Gestión II</button></li>
             <li><button class="ramo" data-id="CF5" data-requisitos="CF4">Contabilidad Financiera V</button></li>
             <li><button class="ramo" data-id="DSI">Diseño de Sistemas de Información</button></li>
-            <li><button class="ramo" data-id="AI" data-requisitos="IA">Auditoría en informática</button></li>            
+            <li><button class="ramo" data-id="AI" data-requisitos="IA">Auditoría en informática</button></li>
           </ul>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="grupo-anio">
-      
+    <!-- Año 5 -->
+    <div class="grupo-anio">
       <div class="anio">Año 5</div>
-      
       <div class="fila-semestres">
-        
         <div class="semestre">
           <h2>Semestre 9</h2>
           <ul>
@@ -155,10 +141,8 @@
             <li><button class="ramo" data-id="A2" data-requisitos="A1">Auditoría II</button></li>
             <li><button class="ramo" data-id="AG" data-requisitos="CGU">Auditoría Gubernamental</button></li>
             <li><button class="ramo" data-id="CG3" data-requisitos="CG2">Contabilidad de Gestión III</button></li>
-
           </ul>
         </div>
-
         <div class="semestre">
           <h2>Semestre 10</h2>
           <ul>
@@ -171,14 +155,16 @@
       </div>
     </div>
 
-  <!-- Modal para mensajes especiales -->
-<div id="modal-especial" class="modal">
-  <div class="modal-contenido">
-    <span id="cerrar-modal" class="cerrar">&times;</span>
-    <p id="contenido-modal-especial"></p>
   </div>
-</div>
-  <script src="script.js"></script>
 
+  <!-- Modal para mensajes especiales -->
+  <div id="modal-especial" class="modal">
+    <div class="modal-contenido">
+      <span id="cerrar-modal" class="cerrar">&times;</span>
+      <p id="contenido-modal-especial"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
