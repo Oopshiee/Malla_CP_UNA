@@ -30,20 +30,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const mensaje = mensajesAleatorios[Math.floor(Math.random() * mensajesAleatorios.length)];
     const contenedorMensaje = document.getElementById("mensaje-aleatorio");
 
-    // Cancelar timeout previo si existe
+    // Cancelar timeout anterior si existe
     clearTimeout(timeoutMensaje);
 
-    // Resetear animación
-    contenedorMensaje.classList.remove("mostrar", "ocultar");
-    void contenedorMensaje.offsetWidth; // Forzar reflow
-
+    // Resetear visibilidad
+    contenedorMensaje.style.opacity = 0;
     contenedorMensaje.textContent = mensaje;
-    contenedorMensaje.classList.add("mostrar");
+
+    // Forzar reflow para reiniciar transición
+    void contenedorMensaje.offsetWidth;
+
+    // Mostrar mensaje
+    contenedorMensaje.style.opacity = 1;
 
     // Ocultar después de 5 segundos
     timeoutMensaje = setTimeout(() => {
-      contenedorMensaje.classList.remove("mostrar");
-      contenedorMensaje.classList.add("ocultar");
+      contenedorMensaje.style.opacity = 0;
     }, 5000);
   }
 
@@ -154,3 +156,4 @@ document.addEventListener("DOMContentLoaded", () => {
   actualizarEstadoRequisitos();
   actualizarBarraProgreso();
 });
+
