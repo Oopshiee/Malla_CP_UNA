@@ -70,14 +70,11 @@ h1 {
 @media (min-width: 768px) {
   .contenedor-malla {
     display: grid;
-    grid-template-columns: repeat(5, minmax(250px, 320px)); /* 5 columnas iguales */
-    gap: 30px; /* espacio entre columnas */
+    grid-template-columns: repeat(5, minmax(280px, 320px)); /* 5 columnas iguales */
+    gap: 40px; /* espacio entre columnas */
     justify-content: center;
-    align-items: stretch;
-    max-width: 1800px;
     margin: 0 auto;
     padding: 20px ;
-    overflow-x: auto;
 
   }
 
