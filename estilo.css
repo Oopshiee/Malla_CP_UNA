@@ -70,17 +70,16 @@ h1 {
 @media (min-width: 768px) {
   .contenedor-malla {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 columnas iguales */
+    grid-template-columns: repeat(5, minmax(250px, 320px)); /* 5 columnas iguales */
     gap: 30px; /* espacio entre columnas */
+    justify-content: center;
     align-items: stretch;
-    max-width: none;
+    max-width: 1800px;
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 20px ;
     overflow-x: auto;
 
   }
-  
-
 
   .grupo-anio{
     display: flex;
