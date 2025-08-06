@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function mostrarMensajeAleatorio(){
     const mensaje = mensajesAleatorios[Math.floor(Math.random() * mensajesAleatorios.length)];
-    const mensajeDiv = document.getElementById("mensaje-aleatorio");
+    const contenedorMensaje = document.getElementById("mensaje-aleatorio");
     
     contenedorMensaje.textContent = mensaje;
     contenedorMensaje.classList.remove("ocultar");
