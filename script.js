@@ -24,17 +24,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const idsSemestre9 = ["EMP", "SIA1", "A2", "AG", "CG3"];
   const idsSemestre10 = ["CF6", "EP", "A3", "SIA2"];
 
+  let timeoutMensaje; // para controlar la duración de los mensajes
+
   function mostrarMensajeAleatorio(){
     const mensaje = mensajesAleatorios[Math.floor(Math.random() * mensajesAleatorios.length)];
     const contenedorMensaje = document.getElementById("mensaje-aleatorio");
-    
+
+    // Cancelar timeout previo si existe
+    clearTimeout(timeoutMensaje);
+
+    // Resetear animación
+    contenedorMensaje.classList.remove("mostrar", "ocultar");
+    void contenedorMensaje.offsetWidth; // Forzar reflow
+
     contenedorMensaje.textContent = mensaje;
-    contenedorMensaje.classList.remove("ocultar");
     contenedorMensaje.classList.add("mostrar");
-    
-    setTimeout(() => {
-        contenedorMensaje.classList.remove("mostrar");
-        contenedorMensaje.classList.add("ocultar");
+
+    // Ocultar después de 5 segundos
+    timeoutMensaje = setTimeout(() => {
+      contenedorMensaje.classList.remove("mostrar");
+      contenedorMensaje.classList.add("ocultar");
     }, 5000);
   }
 
