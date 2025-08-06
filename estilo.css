@@ -27,7 +27,6 @@ h1 {
   border-radius: 5px;
   overflow: hidden;
   margin: 0 auto 25px auto;
-  
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
   position: relative;
 }
@@ -38,8 +37,6 @@ h1 {
   background-color: #00acc1; /* turquesa fuerte */
   width: 0%; /* inicia en 0% */
   transition: width 0.3s;
-
-  /* Centrar texto */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,37 +45,35 @@ h1 {
   user-select: none;
 }
 
-/* Texto con porcentaje en de barra */
+/* Texto con porcentaje */
 #porcentaje-progreso {
-
   z-index: 1;
   pointer-events: none;
   font-weight: bold;
   color: #f3e5f5; /*lavanda casi blanco*/
 }
 
-/* Contenedor principal de la malla: por defecto en columna (móvil) */
+/* Contenedor principal de la malla */
 .contenedor-malla {
   display: flex;
-  flex-direction: column; /* apilar años verticalmente en móvil */
-  gap: 40px; /* espacio entre años */
+  flex-direction: column;
+  gap: 40px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* En pantallas medianas y grandes (PC): usar grid de 5 columnas para años */
+/* PC: 5 columnas para años */
 @media (min-width: 768px) {
   .contenedor-malla {
     display: grid;
-    grid-template-columns: repeat(5, minmax(280px, 320px)); /* 5 columnas iguales */
-    gap: 40px; /* espacio entre columnas */
+    grid-template-columns: repeat(5, minmax(280px, 320px));
+    gap: 40px;
     justify-content: center;
     margin: 0 auto;
-    padding: 20px ;
-
+    padding: 20px;
   }
 
-  .grupo-anio{
+  .grupo-anio {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -86,64 +81,56 @@ h1 {
   }
 }
 
-/* Cada grupo de año se muestra como un grid con 2 filas para semestres */
+/* Grupo año */
 .grupo-anio {
-  background-color: #dcedf8;  /* color suave de fondo */
-  border-radius: 10px; /* bordes redondeados */
+  background-color: #dcedf8;
+  border-radius: 10px;
   justify-items: center;
-  padding: 15px; /* espacio interno */
-  box-shadow: 0 0 8px rgba(0,0,0,0.1); /* sombra suave */
-  min-width: 280px; 
-  max-width: 320px; 
-
-
+  padding: 15px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  min-width: 280px;
+  max-width: 320px;
 }
 
-/* Estilo para el título del año */
+/* Título año */
 .anio {
   font-weight: bold;
   color: #33105D;
   font-size: 24px;
-  margin-bottom: 0;
   text-align: center;
-  user-select: none; /* evita seleccionar texto accidentalmente */
+  user-select: none;
   margin-bottom: 20px;
 }
 
-/* Estilos para cada semestre dentro del año */
+/* Semestre */
 .semestre {
-  background-color: #e0f7fa; /* turquesa claro */
-  border-left: 8px solid #80deea; /* barra izquierda decorativa */
+  background-color: #e0f7fa;
+  border-left: 8px solid #80deea;
   padding: 10px 15px;
   border-radius: 8px;
-  margin-bottom: 20px;
-  margin-top: 20px; 
+  margin: 20px auto;
   max-width: 90%;
   width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 0 6px rgba(0,0,0,0.1); /* sombra ligera */
-
-  /*display botones*/
-  display: flex; /*usamos flexbox*/
-  flex-direction: column; /*organiza verticalmente*/
-  align-items: center; /*organiza horizontalmente*/
-  text-align: center; /*centra el texto*/
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-/* Encabezado h2 del semestre sin margen arriba */
+/* Encabezado semestre */
 .semestre h2 {
   margin: 0 0 10px 0;
 }
 
-/* Lista sin viñetas ni padding */
+/* Lista ramos */
 ul {
   list-style: none;
   padding-left: 0;
   margin: 0;
 }
 
-/* Botones de cada ramo - diseño básico */
+/* Botón ramo */
 button.ramo {
   background-color: #e3f2fd;
   border: 2px solid #b3e5fc;
@@ -154,18 +141,14 @@ button.ramo {
   cursor: pointer;
   width: 100%;
   text-align: left;
-  transition: background-color 0.3s;
-  transition: all 0.3s ease; 
+  transition: all 0.3s ease;
 }
 
-/* Hover para botones que no están aprobados ni deshabilitados */
 button.ramo:not(:disabled):not(.aprobado) {
   background-color: #e1f5fe;
   border-color: #81d4fa;
-  color: #0277bd;
 }
 
-/* Estado aprobado: fondo verde y texto tachado */
 button.ramo.aprobado {
   background-color: #d0f0ef;
   border-color: #26c6da;
@@ -173,7 +156,6 @@ button.ramo.aprobado {
   text-decoration: line-through;
 }
 
-/* Botón deshabilitado (cuando faltan prerrequisitos) */
 button.ramo:disabled {
   opacity: 0.5;
   cursor: not-allowed;
@@ -182,33 +164,31 @@ button.ramo:disabled {
   color: #b0a8c7;
 }
 
-/* Ajustes para móvil: mostrar años y semestres en columna sencilla */
+/* Vista móvil */
 @media (max-width: 767px) {
   .grupo-anio {
-    display: block; /* cada año en bloque vertical */
-    background-color: transparent; /* quitar fondo azul */
-    box-shadow: none; /* quitar sombra */
-    padding: 0; /* quitar padding */
+    display: block;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
   }
   .anio {
-    margin-bottom: 12px; /* separar del semestre */
-    text-align: center;
+    margin-bottom: 12px;
   }
   .semestre {
-    border-left: none; /* quitar barra izquierda */
-    background-color: #ede7f6; /* fondo azul claro */
-    margin: 0 auto 20px auto;
-    margin-bottom: 20px; /* espacio abajo entre semestres */
-    box-shadow: none; /* quitar sombra */
+    border-left: none;
+    background-color: #ede7f6;
+    margin-bottom: 20px;
+    box-shadow: none;
     padding: 10px;
     border-radius: 10px;
-
     width: 90vw;
     max-width: 320px;
     min-width: 320px;
-    box-sizing: border-box;
   }
 }
+
+/* Mensaje aleatorio animado */
 #mensaje-aleatorio {
   margin: 15px auto;
   padding: 12px 16px;
@@ -220,13 +200,20 @@ button.ramo:disabled {
   text-align: center;
   color: #006064;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  min-height: 1.5em;
   opacity: 0;
-  transition: opacity 0.4s ease-in-out;
-  min-height: 1.5em; /* mantiene la altura aunque no haya mensaje */
+  transform: translateY(10px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
+
+#mensaje-aleatorio.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Modal */
 .modal {
-  display: none; /* Oculto por defecto */
+  display: none;
   position: fixed;
   z-index: 1000;
   left: 0;
@@ -234,12 +221,11 @@ button.ramo:disabled {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+  background-color: rgba(0, 0, 0, 0.5);
   justify-content: center;
   align-items: center;
 }
 
-/* Contenido del modal */
 .modal-contenido {
   background-color: #ffffff;
   padding: 20px;
@@ -249,10 +235,9 @@ button.ramo:disabled {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
   font-size: 18px;
-  border: 2px solid #00bcd4; /* turquesa */
+  border: 2px solid #00bcd4;
 }
 
-/* Botón de cierre */
 .cerrar {
   position: absolute;
   top: 15px;
@@ -264,14 +249,5 @@ button.ramo:disabled {
 }
 
 .cerrar:hover {
-  color: #00bcd4; /* turquesa */
+  color: #00bcd4;
 }
-
-#mensaje-aleatorio.mostrar {
-  opacity: 1;
-}
-
-#mensaje-aleatorio.ocultar {
-  opacity: 0;
-}
-
