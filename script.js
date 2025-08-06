@@ -13,8 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Mira como avanzas cariñoo",
     "Un pasito más cerca de la metaa",
     "Se va notando todo el esfuerzo que le pones mi amorr",
-    "Ya te mereces una besuqueada",
-    ""
+    "Ya te mereces una besuqueada"
   ];
 
   const mensajesEspeciales = {
