@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     mensajeDiv.style.opacity = 1;
     setTimeout(() => {
       mensajeDiv.style.opacity = 0;
-    }, 3000);
+    }, 5000);
   }
 
   function mostrarModalEspecial(mensaje) {
@@ -81,33 +81,40 @@ document.addEventListener("DOMContentLoaded", () => {
       const requisitos = boton.dataset.requisitos?.split(",") || [];
       if (requisitos.includes(ramoId) && boton.classList.contains("aprobado")) {
         boton.classList.remove("aprobado");
-        desmarcarDependientes(boton.dataset.id); // llamada recursiva
+        desmarcarDependientes(boton.dataset.id);
       }
     });
   }
 
-  function verificarEspeciales(){
-    const aprobados = idList =>
-      idList.every(id => document.querySelector(`[data-id="${id}"]`)?.classList.contains("aprobado"));
-    
-    if (aprobados(idsSemestre9)) {
-      mostrarModalEspecial(mensajesEspeciales.semestre9);
-    } else if (aprobados(idsSemestre10)) {
-      mostrarModalEspecial(mensajesEspeciales.semestre10);
-    }
+  function perteneceASemestre(id, lista) {
+    return lista.includes(id);
+  }
+
+  function estanTodosAprobados(lista) {
+    return lista.every(id => document.querySelector(`[data-id="${id}"]`)?.classList.contains("aprobado"));
   }
 
   // Eventos para los botones de ramos
   obtenerBotones().forEach(boton => {
     boton.addEventListener("click", () => {
+      const id = boton.dataset.id;
+
       if (boton.classList.contains("aprobado")) {
         boton.classList.remove("aprobado");
-        desmarcarDependientes(boton.dataset.id);
+        desmarcarDependientes(id);
       } else {
         boton.classList.add("aprobado");
         mostrarMensajeAleatorio();
-        verificarEspeciales();
+
+        // Mostrar modal solo si este ramo es del semestre y completa todos
+        if (perteneceASemestre(id, idsSemestre9) && estanTodosAprobados(idsSemestre9)) {
+          mostrarModalEspecial(mensajesEspeciales.semestre9);
+        }
+        if (perteneceASemestre(id, idsSemestre10) && estanTodosAprobados(idsSemestre10)) {
+          mostrarModalEspecial(mensajesEspeciales.semestre10);
+        }
       }
+
       guardarEstado();
       actualizarEstadoRequisitos();
       actualizarBarraProgreso();
