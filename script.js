@@ -9,7 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
     "¡Ánimo ánimo bebé!",
     "Estoy súper orgullosa de ti mi amor",
     "Tú puedes con todo bebé",
-    "Estás haciendo un trabajo increíble cariño"
+    "Estás haciendo un trabajo increíble cariño",
+    "Mira como avanzas cariñoo",
+    "Un pasito más cerca de la metaa",
+    "Se va notando todo el esfuerzo que le pones mi amorr",
+    "Ya te mereces una besuqueada",
+    ""
   ];
 
   const mensajesEspeciales = {
@@ -23,10 +28,14 @@ document.addEventListener("DOMContentLoaded", () => {
   function mostrarMensajeAleatorio(){
     const mensaje = mensajesAleatorios[Math.floor(Math.random() * mensajesAleatorios.length)];
     const mensajeDiv = document.getElementById("mensaje-aleatorio");
-    mensajeDiv.textContent = mensaje;
-    mensajeDiv.style.opacity = 1;
+    
+    contenedorMensaje.textContent = mensaje;
+    contenedorMensaje.classList.remove("ocultar");
+    contenedorMensaje.classList.add("mostrar");
+    
     setTimeout(() => {
-      mensajeDiv.style.opacity = 0;
+        contenedorMensaje.classList.remove("mostrar");
+        contenedorMensaje.classList.add("ocultar");
     }, 5000);
   }
 
